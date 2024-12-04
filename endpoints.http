@@ -1,0 +1,109 @@
+### Create a New Project
+POST https://0b5ff8b0.uqcloud.net/api/project
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsInVzZXJuYW1lIjoiczQ3NTk3ODYifQ.BlLNPbIWXnVgFre1kIE76UVw-X49DvPPJSeG2agfa_Q
+
+{
+  "title": "My Test Project",
+  "description": "A brief description of the project",
+  "instructions": "Follow the instructions",
+  "initial_clue": "This is your first clue",
+  "homescreen_display": "Display initial clue",
+  "is_published": false,
+  "participant_scoring": "Number of Scanned QR Codes",
+  "username": "s4759786"
+}
+
+###
+PATCH https://0b5ff8b0.uqcloud.net/api/project?id=eq.19604
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsInVzZXJuYW1lIjoiczQ3NTk3ODYifQ.BlLNPbIWXnVgFre1kIE76UVw-X49DvPPJSeG2agfa_Q
+
+{
+  "homescreen_display": "Display all locations",
+  "username": "s4759786"
+}
+
+
+### Get All Projects
+GET https://0b5ff8b0.uqcloud.net/api/project
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsInVzZXJuYW1lIjoiczQ3NTk3ODYifQ.BlLNPbIWXnVgFre1kIE76UVw-X49DvPPJSeG2agfa_Q
+
+{
+    "username": "s4759786"
+}
+
+###
+GET https://0b5ff8b0.uqcloud.net/api/tracking
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsInVzZXJuYW1lIjoiczQ3NTk3ODYifQ.BlLNPbIWXnVgFre1kIE76UVw-X49DvPPJSeG2agfa_Q
+
+{
+    "username": "s4759786"
+}
+
+###
+POST https://0b5ff8b0.uqcloud.net/api/tracking
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsInVzZXJuYW1lIjoiczQ3NTk3ODYifQ.BlLNPbIWXnVgFre1kIE76UVw-X49DvPPJSeG2agfa_Q
+
+{
+    "project_id": "13504",
+    "location_id": "4504",
+    "points": 9,
+    "username": "s4759786",
+    "participant_username": "Vee"
+}
+
+###
+POST https://0b5ff8b0.uqcloud.net/api/tracking
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsInVzZXJuYW1lIjoiczQ3NTk3ODYifQ.BlLNPbIWXnVgFre1kIE76UVw-X49DvPPJSeG2agfa_Q
+
+{
+    "username": "s4759786",
+    "participant_username": "Vee"
+}
+### Edit a Project (Replace `:id` with actual project ID)
+PATCH https://0b5ff8b0.uqcloud.net/api/project?id=eq.:id
+Content-Type: application/json
+Authorization: Bearer your_jwt_token_here
+
+{
+  "title": "Updated Project Title"
+}
+
+### Delete a Project (Replace `:id` with actual project ID)
+DELETE https://0b5ff8b0.uqcloud.net/api/project?id=eq.:id
+Authorization: Bearer your_jwt_token_here
+
+### Get locations for a specific project
+
+GET https://0b5ff8b0.uqcloud.net/api/location?project_id=eq.19602 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsInVzZXJuYW1lIjoiczQ3NTk3ODYifQ.BlLNPbIWXnVgFre1kIE76UVw-X49DvPPJSeG2agfa_Q
+Content-Type: application/json
+
+
+### Add a new location to a project
+POST https://0b5ff8b0.uqcloud.net/api/location
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsInVzZXJuYW1lIjoiczQ3NTk3ODYifQ.BlLNPbIWXnVgFre1kIE76UVw-X49DvPPJSeG2agfa_Q
+Content-Type: application/json
+Prefer: return=representation
+
+{
+  
+  "project_id": "13504",
+  "location_name": "UQ Sport Courts, UQ",
+  "location_trigger": "Location",
+  "location_position": "-27.49278717815242, 153.0142174835569",
+  "score_points": 10,
+  "clue": "This is a clue for the next location",
+  "location_content": "Here is some additional content for the location",
+  "username": "s4759786"
+}
+
+### Delete a Project (Replace `:id` with actual project ID)
+DELETE https://0b5ff8b0.uqcloud.net/api/tracking
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsInVzZXJuYW1lIjoiczQ3NTk3ODYifQ.BlLNPbIWXnVgFre1kIE76UVw-X49DvPPJSeG2agfa_Q
+Content-Type: application/json
+Prefer: return=representation
+
+
+
